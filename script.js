@@ -8,8 +8,13 @@ const toGenerateMessage = (user) => {
 	return {
 		_you: user,
 		toGetMessage() {
-			const subjects = ["You", "Your friend", "The universe"];
-			const verbs = ["will find", "is about to discover", "will teach you"];
+			const subjects = ["You", "Your friend", "The universe", "Your cat"];
+			const verbs = [
+				"will find",
+				"is about to discover",
+				"will teach you",
+				"will help you to enjoy",
+			];
 			const objects = [
 				"the meaning of life.",
 				"new opportunities.",
@@ -28,9 +33,40 @@ const toGenerateMessage = (user) => {
 
 			setTimeout(() => {
 				console.log(
-					`${this._you}, this is your truth for today: ${message.toUpperCase()}`
-				);
+					`${
+						this._you
+					}, this is your truth for today: •• ${message.toUpperCase()} ••`
+				), this.toGetASCIIArt();
 			}, 5000);
+		},
+		toGetASCIIArt() {
+			const animals = ["dog", "rabbit", "cat"];
+			const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+			let asciiArt = "";
+
+			if (randomAnimal === "dog") {
+				asciiArt = `
+      / \\__
+     (    @\\__ 
+     /         O
+    /   (_____/
+/_____/   U
+				`;
+			} else if (randomAnimal === "rabbit") {
+				asciiArt = `
+    (\\(\\ 
+   ( -.-)
+   o_(")(")
+				`;
+			} else if (randomAnimal === "cat") {
+				asciiArt = `
+    /\\_/\\  
+   ( o.o ) 
+    > ^ < 
+				`;
+			}
+
+			console.log(asciiArt);
 		},
 	};
 };
